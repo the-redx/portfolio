@@ -1,0 +1,86 @@
+@tailwind base;
+
+@layer base {
+  :root {
+    --color-crema-100: #f9f7f5;
+    --color-crema-200: #efebe8;
+    --color-crema-300: #e7e2df;
+    --color-crema-400: #918594;
+    --color-crema-500: #918594;
+    --color-crema-600: #7e6e81;
+    --color-crema-700: #837385;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-crema-100: #2a303c;
+      --color-crema-200: #242934;
+      --color-crema-300: #20252e;
+      --color-crema-400: #7c8e99;
+      --color-crema-500: #6e7f89;
+      --color-crema-600: #7c8e99;
+      --color-crema-700: #7c8e99;
+    }
+  }
+
+  body {
+    @apply text-crema-600;
+  }
+
+  a {
+    @apply text-crema-600 hover:opacity-80 transition-all;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-crema-700 font-semibold;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+*, *:before, *:after{
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+}
+
+footer, header, nav, section, main{
+  display: block;
+}
+
+body{
+  line-height: 1;
+}
+
+ol, ul{
+  list-style: none;
+}
+
+blockquote, q{
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after{
+  content: '';
+  content: none;
+}
+
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input{
+  -webkit-appearance: none;
+  border-radius: 0;
+}
