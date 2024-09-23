@@ -84,3 +84,10 @@ input{
   -webkit-appearance: none;
   border-radius: 0;
 }
+
+@keyframes show {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}

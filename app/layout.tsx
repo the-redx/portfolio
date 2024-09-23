@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 
 import './global.scss';
-import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: 'Illiashenko Illia - Portfolio',
@@ -41,20 +40,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <script key="schema" type="application/ld+json">
-          {JSON.stringify({
-            '@context': 'http://schema.org/',
-            '@type': 'Person',
-            name: 'Illia Illiashenko',
-            jobTitle: 'Software Engineer',
-            email: 'illia@illiashenko.dev',
-            homeLocation: 'Warsaw, Poland',
-            url: 'https://illiashenko.dev',
-          })}
-        </script>
-      </Head>
-
       <body className={roboto.className}>{children}</body>
     </html>
   );

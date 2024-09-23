@@ -2,22 +2,21 @@ import { Card } from '@/components/Card';
 import { InfoItem } from '@/components/InfoItem';
 import { PortfolioCard } from '@/components/PortfolioCard';
 import { SkillsContent } from '@/components/SkillsContent';
-import Timeline from '@/components/Timeline/Timeline';
+import { Timeline } from '@/components/Timeline';
 
 import { GithubCard } from '@/components/GithubCard';
 import { PublicationCard } from '@/components/PublicationCard';
 import { ProgressBar } from '@/components/ProgressBar';
 import { NoDataMessage } from '@/components/NoDataMessage';
-import { getProfileData } from '@/utils/getProfileData';
-import { getProjectsData } from '@/utils/getProjectsData';
-import { getPublicationsData } from '@/utils/getPublicationsData';
 import { FaGithub, FaHome, FaLinkedin, FaRegEnvelope, FaTelegram } from 'react-icons/fa';
+import { Footer } from '@/components/Footer';
+import { getProfile, getProjects, getPublications } from '@/utils/portfolio-data';
 
 export default async function HomePage() {
   const [profile, project, publication] = await Promise.all([
-    getProfileData(),
-    getProjectsData('the-redx'),
-    getPublicationsData('imredx'),
+    getProfile(),
+    getProjects('the-redx'),
+    getPublications('imredx'),
   ]);
 
   return (
@@ -168,21 +167,7 @@ export default async function HomePage() {
         </div>
       </main>
 
-      <footer className="bg-crema-200 py-4 px-8 w-full h-24 flex justify-between items-center">
-        <div className="flex items-center text-opacity-60 gap-6 text-sm">
-          <a target="_blank" href="https://api.illiashenko.dev/docs">
-            API
-          </a>
-
-          <a target="_blank" href="https://go.illiashenko.dev/">
-            Link shortener
-          </a>
-        </div>
-
-        <div className="text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Illia Illiashenko</p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
