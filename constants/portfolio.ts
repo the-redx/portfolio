@@ -6,17 +6,10 @@ export const MAX_PUBLICATIONS_COUNT = 3;
 
 export const exprerience: Experience[] = [
   {
-    dateStart: 'October 2019',
-    dateEnd: 'March 2020',
-    position: 'Freelancer',
-    company: '',
-  },
-  {
-    dateStart: 'March 2020',
-    dateEnd: 'October 2021',
-    position: 'Software Engineer',
-    company: 'NIX',
-    companyUrl: 'https://www.nixsolutions.com/',
+    dateStart: 'May 2023',
+    position: 'Senior Software Engineer',
+    company: 'SoftServe',
+    companyUrl: 'https://softserveinc.com/',
   },
   {
     dateStart: 'November 2021',
@@ -26,10 +19,17 @@ export const exprerience: Experience[] = [
     companyUrl: 'https://softserveinc.com/',
   },
   {
-    dateStart: 'May 2023',
-    position: 'Senior Software Engineer',
-    company: 'SoftServe',
-    companyUrl: 'https://softserveinc.com/',
+    dateStart: 'March 2020',
+    dateEnd: 'October 2021',
+    position: 'Software Engineer',
+    company: 'NIX',
+    companyUrl: 'https://www.nixsolutions.com/',
+  },
+  {
+    dateStart: 'October 2019',
+    dateEnd: 'March 2020',
+    position: 'Freelancer',
+    company: '',
   },
 ];
 

@@ -58,7 +58,7 @@ export async function getProjects(
     });
 
     const excludeRepos = reposToExclude.map(project => `+-repo:${project}`).join('');
-    const query = `user:${username}+fork:false${excludeRepos}`;
+    const query = `user:${username}${excludeRepos}`;
     const url = `https://api.github.com/search/repositories?q=${query}&sort=updated&per_page=${MAX_PROJECTS_COUNT}&type=Repositories`;
 
     const reposReq = fetch(url, {
