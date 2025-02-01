@@ -1,8 +1,10 @@
 export type Link = {
   id: string;
-  url: string;
+  name: string;
   shortUrl: string;
-  createdAt: string;
-  updatedAt: string;
-  clicks: number;
+  redirects: number;
+  url: string;
+  status: 'active' | 'paused';
+  dateCreated: string;
+  dateUpdated: string;
 };

@@ -12,6 +12,7 @@ import {
 import { ToastContainer, toast } from 'react-toastify';
 import { createLink, fetchLinks, removeLink } from './utils';
 import type { GetLinksResponse } from './types';
+import type { FormData } from '../CreateLinkInput/CreateLinkInput';
 
 export interface LinksBodyProps {}
 
@@ -25,7 +26,15 @@ const LinksBody: React.FC<LinksBodyProps> = () => {
     getNextPageParam: (lastPage, pages) => pages.reduce((acc, page) => acc + page.links.length, 0),
   });
 
-  const createLinkMutation = useMutation<Link, Error, { url: string }>({
+  const createLinkMutation = useMutation<
+    Link,
+    Error,
+    {
+      name?: string;
+      id?: string;
+      url: string;
+    }
+  >({
     mutationFn: createLink,
     onSuccess: link => {
       navigator.clipboard.writeText(link.shortUrl).then(
@@ -44,7 +53,7 @@ const LinksBody: React.FC<LinksBodyProps> = () => {
     },
   });
 
-  const removeLinkMutation = useMutation<Link, Error, { shortUrl: string }>({
+  const removeLinkMutation = useMutation<Link, Error, { linkId: string }>({
     mutationFn: removeLink,
     onSuccess: () => {
       toast.success('Link successfully removed');
@@ -55,18 +64,18 @@ const LinksBody: React.FC<LinksBodyProps> = () => {
   });
 
   const handleCreateLink = useCallback(
-    (url: string) => createLinkMutation.mutateAsync({ url }),
+    (formData: FormData) => createLinkMutation.mutateAsync(formData),
     [createLinkMutation],
   );
 
   const handleClickRemove = useCallback(
-    (link: Link) => removeLinkMutation.mutateAsync({ shortUrl: link.shortUrl }),
+    (link: Link) => removeLinkMutation.mutateAsync({ linkId: link.id }),
     [removeLinkMutation],
   );
 
   return (
     <>
-      <div className="mt-10 mb-10 w-96">
+      <div className="mb-10 w-96 h-11">
         <CreateLinkInput onCreateLink={handleCreateLink} />
       </div>
 

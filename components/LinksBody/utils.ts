@@ -9,10 +9,14 @@ export const fetchLinks = async ({ pageParam }: { pageParam: unknown }) => {
   return data;
 };
 
-export const createLink = async (variables: { url: string }) => {
+export const createLink = async (variables: { name?: string; id?: string; url: string }) => {
   const res = await fetch('/api/links', {
     method: 'POST',
-    body: JSON.stringify(variables),
+    body: JSON.stringify({
+      name: variables.name || undefined,
+      id: variables.id || undefined,
+      url: variables.url,
+    }),
   });
 
   const data = await res.json();
@@ -21,8 +25,8 @@ export const createLink = async (variables: { url: string }) => {
   return data;
 };
 
-export const removeLink = async (variables: { shortUrl: string }) => {
-  const res = await fetch(variables.shortUrl, { method: 'DELETE' });
+export const removeLink = async (variables: { linkId: string }) => {
+  const res = await fetch(`/api/links/${variables.linkId}`, { method: 'DELETE' });
 
   const data = await res.json();
   if (!res.ok) throw new Error(data.error);

@@ -1,7 +1,7 @@
 'use client';
 import { Link } from '@/types/link.type';
 import React, { useCallback } from 'react';
-import { FaRegCopy, FaRegTrashCan, FaEye } from 'react-icons/fa6';
+import { FaRegCopy, FaRegTrashCan, FaEye, FaLink } from 'react-icons/fa6';
 import { toast } from 'react-toastify';
 
 export interface LinksListProps {
@@ -42,17 +42,36 @@ const LinksList: React.FC<LinksListProps> = ({
           }}
         >
           <div className="flex flex-grow flex-col gap-0.5 overflow-hidden">
-            <a
-              href={link.url}
-              title={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-start truncate"
-            >
-              {link.url}
-            </a>
-            <span className="flex items-center gap-1 text-crema-400 font-semibold">
-              <FaEye /> {link.clicks}
+            {link.name ? (
+              <>
+                <span title={link.name} className="font-semibold text-start truncate">
+                  {link.name}
+                </span>
+
+                <a
+                  href={link.url}
+                  title={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-start truncate"
+                >
+                  <FaLink className="inline" /> {link.url}
+                </a>
+              </>
+            ) : (
+              <a
+                href={link.url}
+                title={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-start truncate"
+              >
+                <FaLink className="inline" /> {link.url}
+              </a>
+            )}
+
+            <span className="text-crema-400 text-start font-semibold">
+              <FaEye className="inline" /> {link.redirects}
             </span>
           </div>
 

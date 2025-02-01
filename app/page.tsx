@@ -5,18 +5,17 @@ import { SkillsContent } from '@/components/SkillsContent';
 import { Timeline } from '@/components/Timeline';
 
 import { GithubCard } from '@/components/GithubCard';
-import { PublicationCard } from '@/components/PublicationCard';
 import { ProgressBar } from '@/components/ProgressBar';
 import { NoDataMessage } from '@/components/NoDataMessage';
 import { FaGithub, FaHome, FaLinkedin, FaRegEnvelope, FaTelegram } from 'react-icons/fa';
 import { Footer } from '@/components/Footer';
-import { getProfile, getProjects, getPublications } from '@/utils/portfolio-data';
+import { getProfile, getProjects } from '@/utils/portfolio-data';
 
 export default async function HomePage() {
-  const [profile, project, publication] = await Promise.all([
+  const [profile, project] = await Promise.all([
     getProfile(),
     getProjects('the-redx'),
-    getPublications('imredx'),
+    // getPublications('imredx'),
   ]);
 
   return (
@@ -136,7 +135,7 @@ export default async function HomePage() {
                   )}
                 </Card>
               )}
-
+{/* 
               {publication && (
                 <Card
                   title="Publications"
@@ -161,7 +160,7 @@ export default async function HomePage() {
                     <NoDataMessage />
                   )}
                 </Card>
-              )}
+              )} */}
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { Certification, Education, Experience, Language } from "@/types/profile.type";
 
-export const MAX_PROJECTS_COUNT = 6;
+export const MAX_PROJECTS_COUNT = 8;
 
 export const MAX_PUBLICATIONS_COUNT = 3;
 
