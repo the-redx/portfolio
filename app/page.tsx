@@ -73,8 +73,8 @@ export default async function HomePage() {
           </div>
 
           <div className="lg:col-span-2 col-span-1 flex flex-col gap-6">
-            <div className="flex flex-no-wrap gap-6">
-              <div className="basis-1/2">
+            <div className="flex gap-6 flex-col lg:flex-row">
+              <div className="flex gap-6 flex-col lg:basis-1/2 basis-full">
                 <Card title="Experience">
                   <Timeline
                     timeline={profile.exprerience.map(exp => ({
@@ -88,7 +88,7 @@ export default async function HomePage() {
                 </Card>
               </div>
 
-              <div className="flex gap-6 flex-col basis-1/2">
+              <div className="flex gap-6 flex-col lg:basis-1/2 basis-full">
                 <Card title="Certification">
                   <Timeline
                     timeline={profile.certifications.map(cert => ({
