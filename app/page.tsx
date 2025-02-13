@@ -64,42 +64,6 @@ export default async function HomePage() {
                 <SkillsContent skills={profile.skills} />
               </Card>
 
-              <Card title="Experience">
-                <Timeline
-                  timeline={profile.exprerience.map(exp => ({
-                    dateStart: exp.dateStart,
-                    dateEnd: exp.dateEnd,
-                    title: exp.position,
-                    company: exp.company,
-                    companyUrl: exp.companyUrl,
-                  }))}
-                />
-              </Card>
-
-              <Card title="Certification">
-                <Timeline
-                  timeline={profile.certifications.map(cert => ({
-                    dateStart: 'Issued',
-                    dateEnd: cert.dateIssued,
-                    title: cert.title,
-                    company: cert.issuer,
-                    companyUrl: cert.certificateUrl,
-                  }))}
-                />
-              </Card>
-
-              <Card title="Education">
-                <Timeline
-                  timeline={profile.educations.map(exp => ({
-                    dateStart: exp.dateStart,
-                    dateEnd: exp.dateEnd,
-                    title: exp.title,
-                    company: exp.issuer,
-                    companyUrl: exp.issuerUrl,
-                  }))}
-                />
-              </Card>
-
               <Card title="Languages">
                 {profile.languages.map(lang => (
                   <ProgressBar key={lang.name} title={lang.name} progress={lang.progress} />
@@ -108,7 +72,49 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="lg:col-span-2 col-span-1">
+          <div className="lg:col-span-2 col-span-1 flex flex-col gap-6">
+            <div className="flex flex-no-wrap gap-6">
+              <div className="basis-1/2">
+                <Card title="Experience">
+                  <Timeline
+                    timeline={profile.exprerience.map(exp => ({
+                      dateStart: exp.dateStart,
+                      dateEnd: exp.dateEnd,
+                      title: exp.position,
+                      company: exp.company,
+                      companyUrl: exp.companyUrl,
+                    }))}
+                  />
+                </Card>
+              </div>
+
+              <div className="flex gap-6 flex-col basis-1/2">
+                <Card title="Certification">
+                  <Timeline
+                    timeline={profile.certifications.map(cert => ({
+                      dateStart: 'Issued',
+                      dateEnd: cert.dateIssued,
+                      title: cert.title,
+                      company: cert.issuer,
+                      companyUrl: cert.certificateUrl,
+                    }))}
+                  />
+                </Card>
+
+                <Card title="Education">
+                  <Timeline
+                    timeline={profile.educations.map(exp => ({
+                      dateStart: exp.dateStart,
+                      dateEnd: exp.dateEnd,
+                      title: exp.title,
+                      company: exp.issuer,
+                      companyUrl: exp.issuerUrl,
+                    }))}
+                  />
+                </Card>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 gap-6">
               {project && (
                 <Card
@@ -135,32 +141,6 @@ export default async function HomePage() {
                   )}
                 </Card>
               )}
-{/* 
-              {publication && (
-                <Card
-                  title="Publications"
-                  isParentCard
-                  topButton={{ name: 'See All', link: publication.allUrl }}
-                >
-                  {publication.items.length > 0 ? (
-                    <div className="grid grid-cols-1 gap-6">
-                      {publication.items.map(item => (
-                        <PublicationCard
-                          key={item.href}
-                          tags={item.tags}
-                          href={item.href}
-                          title={item.title}
-                          image={item.image}
-                          description={item.description}
-                          publicationDate={item.publicationDate}
-                        />
-                      ))}
-                    </div>
-                  ) : (
-                    <NoDataMessage />
-                  )}
-                </Card>
-              )} */}
             </div>
           </div>
         </div>

@@ -4,22 +4,22 @@ import { Roboto } from 'next/font/google';
 import './global.scss';
 
 export const metadata: Metadata = {
-  title: 'Illiashenko Illia - Portfolio',
-  description: 'Illiashenko Illia - My personal portfolio',
+  title: 'Illia Illiashenko - Portfolio',
+  description: 'Illia Illiashenko - My personal portfolio',
   creator: 'Illia Illiashenko',
   metadataBase: new URL('https://illiashenko.dev'),
   manifest: '/manifest.webmanifest',
   keywords: [],
   icons: ['/favicon.png'],
   twitter: {
-    title: 'Illiashenko Illia - Portfolio',
-    description: 'Illiashenko Illia - My personal portfolio',
+    title: 'Illia Illiashenko - Portfolio',
+    description: 'Illia Illiashenko - My personal portfolio',
     images: ['/favicon.png'],
     site: 'https://illiashenko.dev',
   },
   openGraph: {
-    title: 'Illiashenko Illia - Portfolio',
-    description: 'Illiashenko Illia - My personal portfolio',
+    title: 'Illia Illiashenko - Portfolio',
+    description: 'Illia Illiashenko - My personal portfolio',
     url: 'https://illiashenko.dev',
     images: ['/favicon.png'],
     locale: 'en',
