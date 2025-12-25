@@ -74,7 +74,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = () => {
 
         <div className="flex justify-center">
           <a
-            href="/Illia Illiashenko CV, Senior Frontend Engineer.pdf"
+            href="/api/cv"
             target="_blank"
             type="button"
             className="py-3 px-4 text-sm font-semibold border-solid border bg-crema-400 text-crema-100 hover:bg-transparent hover:text-crema-400 rounded-full transition-all duration-300"
