@@ -3,14 +3,15 @@ import { requestLinksAPI } from '@/utils/links';
 import { getOrCreateUserSession } from '@/utils/session';
 import { NextRequest } from 'next/server';
 
-export async function DELETE(request: NextRequest, { params }: { params: { linkId: string } }) {
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ linkId: string }> }) {
   try {
+    const { linkId } = await params;
     const session = await getOrCreateUserSession();
     if (!session) {
       throw new Error('User session is required');
     }
 
-    const data = await requestLinksAPI<Link>(`/${params.linkId}`, {
+    const data = await requestLinksAPI<Link>(`/${linkId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

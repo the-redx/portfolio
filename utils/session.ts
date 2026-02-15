@@ -27,15 +27,15 @@ export async function decrypt(session: string | undefined = '') {
   }
 }
 
-export function deleteSession() {
-  cookies().delete('session');
+export async function deleteSession() {
+  (await cookies()).delete('session');
 }
 
 export async function createSession(userId: string) {
   const expiresAt = Math.floor(Date.now() / 1000) + 365.25 * 24 * 3600; // 1 year
   const session = await encrypt({ userId, expiresAt });
 
-  cookies().set('session', session, {
+  (await cookies()).set('session', session, {
     httpOnly: true,
     secure: true,
     expires: expiresAt * 1000,
@@ -45,7 +45,7 @@ export async function createSession(userId: string) {
 }
 
 export async function getUserSession() {
-  const session = cookies().get('session');
+  const session = (await cookies()).get('session');
 
   if (session) {
     return await decrypt(session.value);
