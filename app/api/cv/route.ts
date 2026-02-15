@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { downloadGoogleDocWithAuth } from '@/constants/gdocs';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const googleDocsId = process.env.GOOGLE_DOCS_CV_ID;
 
@@ -15,7 +17,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition': 'inline; filename="Illia Illiashenko CV, Senior Software Engineer.pdf"',
-        'Cache-Control': `public, max-age=3600`,
+        'Cache-Control': 'public, s-maxage=600, stale-while-revalidate=60',
         'Content-Length': pdfBuffer.byteLength.toString(),
       },
     });

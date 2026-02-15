@@ -2,6 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  async rewrites() {
+    return [
+      {
+        source: "/cv",
+        destination: "/api/cv",
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
